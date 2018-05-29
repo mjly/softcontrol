@@ -1,0 +1,31 @@
+<html>
+<head>
+    <!--soft_info是一个对象，soft_name则是该对象的一个属性-->
+    <title>Edit Info for Soft: {{soft_info.soft_name}}</title>
+</head>
+<body>
+<h1>Edit Soft_Info</h1>
+<hr/>
+<center>
+    <!--以POST方式将修改后的信息提交到UpdatesoftInfo-->
+    <form name='edit_soft_info' action='UpdateSoftInfo' method='post'>
+        Name: <input type='text' name='soft_name' value={{soft_info.soft_name }} readonly/>
+        version: <input type='text' name='soft_version' value={{soft_info.soft_version }}/>
+        md5: <input type='text' name='soft_md5' value={{soft_info.soft_md5 }}/>
+        sha1: <input type='text' name='soft_sha1' value={{soft_info.soft_sha1 }}/>
+        <select name="soft_dep">
+                        <option value="1000">ALL</option>
+                        <option value="1001">市场部</option>
+                        <option value="1002">营业部</option>
+                        <option value="1003">客服部</option>
+                        <option value="1004">账户管理部</option>
+                        <option value="1005">财务部</option>
+                        <option value="1006">风险运营部</option>
+            </select>
+        <input type='submit' value='Submit'/>
+        <input type='Reset' value='Reset'/>
+    </form>
+</center>
+<hr/>
+</body>
+</html>

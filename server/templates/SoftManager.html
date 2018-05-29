@@ -1,0 +1,60 @@
+<html>
+<head>
+    <!--这里的{{title}}表示title这个变量的内容由服务器端产生并填写到该位置-->
+    <title>{{title}}</title>
+<body>
+<center><h1>Welcome to SoftManager</h1></center>
+<hr/>
+<center>
+    <!--表单以POST方式提交到AddUser-->
+    <form name = 'new_soft' action = 'Addsoft' method = 'post'>
+
+            名字:<input type = 'text' name = 'soft_name' />
+            版本:<input type = 'text' name = 'soft_version' />
+            md5 :<input type = 'text' name = 'soft_md5' />
+            sha1:<input type = 'text' name = 'soft_sha1' />
+            <select name="soft_dep">
+                        <option value="1000">ALL</option>
+                        <option value="1001">市场部</option>
+                        <option value="1002">营业部</option>
+                        <option value="1003">客服部</option>
+                        <option value="1004">账户管理部</option>
+                        <option value="1005">财务部</option>
+                        <option value="1006">风险运营部</option>
+            </select>
+            <!--部门编号 :<input type = 'text' name = 'soft_dep' value='1000'/>-->
+            <input type = 'submit' value = 'Submit' />
+            <input type = 'reset' value = 'Reset' />
+
+    </form>
+<hr/>
+<table border = 1>
+        <tr style = 'font-weight:bold' align = 'center'>
+                <td width = '200' >名字</td>
+                <td width = '100' >版本</td>
+                <td width = '100' >md5</td>
+                <td width = '100' >sha1</td>
+                <td width = '200' >dep</td>
+                <td width = '100' ></td>
+                <td width = '100' ></td>
+        </tr>
+        <!--softs是一个由服务器端通过查询数据库而产生的列表，这里用for语句可以把软件信息全部输出-->
+        {% for soft in softs %}
+        <tr align = 'center'>
+                <!--soft.soft_name即是软件名名。下同-->
+                <td>{{ soft.soft_name }}</td>
+                <td>{{ soft.soft_version }}</td>
+                <td>{{ soft.soft_md5}}</td>
+                <td>{{ soft.soft_sha1}}</td>
+                <td>{{ soft.soft_dep}}</td>
+                <!--编辑链接，可以编辑指定软件名的信息-->
+                <td><a href = '/soft/EditSoft?soft_name={{soft.soft_name}}' >Edit</a></td>
+                <!--删除链接，可以删除指定用户名的信息-->
+                <td><a href = '/soft/DeleteSoft?soft_name={{soft.soft_name}}' >Delete</a></td>
+        </tr>
+        <!--for循环结束-->
+        {% end %}
+</table>
+</center>
+</body>
+</html>
