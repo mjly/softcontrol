@@ -1,3 +1,4 @@
 import getpass
-username=getpass.getuser()
-print(username)
+def getUserName():
+    username=getpass.getuser()
+    return username

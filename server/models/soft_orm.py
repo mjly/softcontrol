@@ -78,6 +78,9 @@ class SoftManageORM():
     def GetSoftByName(self, soft_name):  # 根据软件名返回信息
         return self.session.query(Soft).filter_by(
             soft_name=soft_name).all()[0]
+    def GetSoftByMd5(self, soft_md5):  # 根据软件md5返回信息
+        return self.session.query(Soft).filter_by(
+            soft_name=soft_name).all()[0]
 
     def GetAllSoft(self):  # 返回所有软件的列表
         return self.session.query(Soft)

@@ -20,7 +20,7 @@ def get_file_name():
     dlg.DoModal()
 
     filename = dlg.GetPathName()  # 获取选择的文件名称
-    print(filename)
+    #print(filename)
     return filename
 
 def GetpathFromLink(lnkpath):
@@ -37,7 +37,7 @@ def CalcSha1(filepath):
         sha1obj = hashlib.sha1()
         sha1obj.update(f.read())
         hash = sha1obj.hexdigest()
-        print(hash)
+        #print(hash)
         return hash
 
 
@@ -46,7 +46,7 @@ def CalcMD5(filepath):
         md5obj = hashlib.md5()
         md5obj.update(f.read())
         hash = md5obj.hexdigest()
-        print(hash)
+       # print(hash)
         return hash
 
 
@@ -59,9 +59,10 @@ def getData():
         hashfile = file_name
 
     if not os.path.exists(hashfile):
+
         hashfile = os.path.join(os.path.dirname(__file__), hashfile)
         if not os.path.exists(hashfile):
-            print("cannot found file")
+            return ("cannot found file",' ',' ')
         else:
             file_md5 = CalcMD5(hashfile)
             file_sha1 = CalcSha1(hashfile)
@@ -72,5 +73,4 @@ def getData():
         return (hashfile,file_md5,file_sha1)
 
         # raw_input("pause")
-
 
