@@ -1,16 +1,16 @@
 <html>
 <head>
-    <!--user_info是一个对象，user_name则是该对象的一个属性-->
-    <title>Edit Info for User: {{user_info.user_name}}</title>
+    <!--info是一个对象，name则是该对象的一个属性-->
+    <title>Edit Info for User: {{info.name}}</title>
 </head>
 <body>
 <h1>Edit User_Info</h1>
 <hr/>
 <center>
     <!--以POST方式将修改后的信息提交到UpdateuserInfo-->
-    <form name='edit_user_info' action='UpdateUserInfo' method='post'>
-        Name: <input type='text' name='user_name' value={{user_info.user_name }} readonly/>
-        <select name="user_dep">
+    <form name='edit_info' action='UpdateUserInfo' method='post'>
+        Name: <input type='text' name='name' value={{info.name }} readonly/>
+        <select name="dep">
                         <option value="1000">ALL</option>
                         <option value="1001">市场部</option>
                         <option value="1002">营业部</option>
@@ -18,6 +18,9 @@
                         <option value="1004">账户管理部</option>
                         <option value="1005">财务部</option>
                         <option value="1006">风险运营部</option>
+                        <option value="1007">企划部</option>
+                        <option value="1008">内审部</option>
+                        <option value="1009">总经办</option>
             </select>
         <input type='submit' value='Submit'/>
         <input type='Reset' value='Reset'/>

@@ -66,11 +66,11 @@ def tcp_server():
         conn.close()
     server.close()
 
-if __name__ == "__main__":
-    while True:
-        # TCP
-        try:
-            tcp_server()
-
-        except :
-            pass
+# if __name__ == "__main__":
+#     while True:
+#         # TCP
+#         try:
+#             tcp_server()
+#
+#         except :
+#             pass
